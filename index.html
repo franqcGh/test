@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/icon/logo_fya31_480p.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Fe y Alegría 31 NSG</title>
+</head>
+
+<body>
+    <header class="flexContainer">
+        <div class="brandContainer flexContainer">
+            <img class="logo" src="images/icon/logo_fya31_480p.png" alt="logo de fe y alegría">
+
+            <h2 class="brand">Fe y Alegría 31</h2>
+        </div>
+
+        <nav>
+            <ul class="navbar flexContainer">
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Niveles</a></li>
+                <li><a href="#">Proyectos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <h1>Funciones [lineales]</h1>
+        
+        <p>
+          Una función es una relación especial entre dos conjuntos, llamados dominio y rango. <strong>A cada elemento en el dominio le corresponde uno y solo un elemento en el rango</strong>. Imagina una máquina expendedora de refrescos: si introduces una moneda (dominio), obtienes una bebida (rango). Cada moneda produce un único resultado.
+        </p>
+      
+        <h2>Notación</h2>
+        
+        <p>
+          Para representar una función, utilizamos la notación \(f(x)\), donde "f" es el nombre de la función y "x" es la variable de entrada. La función toma "x" como entrada y produce un resultado correspondiente, denotado como \(f(x)\). Por ejemplo, \(f(x) = 2x\) representa una función que duplica el valor de "x".
+        </p>
+
+        <div class="graficoContainer">
+          <img class="graficoSVG flexContainer" src="images/graficos/funciones - diagrama de flechas.svg" alt="representacion de una funcion, utilizando diagrama de flechas">
+        </div>
+        
+      
+        <h2>Gráficos de funciones</h2>
+
+        <p>
+          Los gráficos son una forma visual de representar funciones. El eje x representa la entrada (dominio) y el eje y representa el resultado (rango). Cada punto en el gráfico corresponde a un par de valores \( (x, f(x)) \).
+        </p>
+
+        <div id="grafico" class="grafico"></div>
+        <script>
+          // Definir los datos
+          const x = [-4, -3, -2,-1, 0, 1, 2, 3, 4];  // Valores de x
+          const y1 = x.map(x => 2*x);  // Función lineal y = 2x + 3
+      
+          // Definir el trazo (en este caso, una línea)
+          const trace1 = {
+            x: x,
+            y: y1,
+            mode: 'markers+lines',
+            type: 'scatter',
+            marker: {
+              size: 5,  // Tamaño de los puntos
+              color: 'red'  // Color de los puntos
+            },
+            line : {
+              color: 'blue'
+            }
+          };
+      
+          // Definir el diseño del gráfico
+          const layout1 = {
+            title: 'Función Lineal y = f(x) = 2x',
+            xaxis: {
+              title: 'x - DOMINIO',
+              dtick: 1,
+              scaleanchor: 'y'
+            },
+            yaxis: {
+              title: 'y - RANGO',
+              dtick: 1
+            }
+          };
+      
+          // Crear el gráfico
+          Plotly.newPlot('grafico', [trace1], layout1);
+        </script>
+        
+        <h2>Propiedades</h2>
+
+        <p>Las funciones tienen varias propiedades que pueden ser útiles para analizarlas.</p>
+        
+        <ul>
+          <li>
+            <p><strong>Función Inyectiva (o Inyectividad):</strong><br>
+            Una función es inyectiva si cada elemento del dominio se asigna a un único elemento en el rango, es decir, ningún elemento del dominio se asigna a más de un elemento en el rango. Formalmente, una función \(f: A \rightarrow B\) es inyectiva si para cada par de elementos distintos \(a_1\) y \(a_2\) en \(A\), sus imágenes bajo \(f\) son distintas: \(f(a_1) \neq f(a_2)\).</p>
+          </li>
+          <li>
+            <p><strong>Función Sobreyectiva (o Sobreyectividad):</strong><br>
+              Una función es sobreyectiva si cada elemento en el rango tiene al menos un elemento en el dominio que se asigna a él. En otras palabras, no hay "huecos" en la asignación de elementos del dominio al rango. Formalmente, una función \(f: A \rightarrow B\) es sobreyectiva si para cada elemento \(b\) en \(B\), hay al menos un elemento \(a\) en \(A\) tal que \(f(a) = b\).</p>              
+          </li>
+          <li>
+            <p><strong>Función Biyectiva (o Biyectividad):</strong><br>
+              Una función es biyectiva si es tanto inyectiva como sobreyectiva. Esto significa que cada elemento en el dominio se asigna a un único elemento en el rango y que cada elemento en el rango está relacionado con un único elemento en el dominio. En resumen, una función es biyectiva si es una correspondencia uno a uno entre los conjuntos. Formalmente, una función \(f: A \rightarrow B\) es biyectiva si para cada elemento \(b\) en \(B\), hay exactamente un elemento \(a\) en \(A\) tal que \(f(a) = b\), y para cada elemento \(a\) en \(A\), hay exactamente un elemento \(b\) en \(B\) tal que \(f(a) = b\).</p>              
+          </li>
+        </ul>
+
+        <h2>Evaluación de funciones</h2>
+
+        <p>
+          Para evaluar una función en un valor particular de "x", simplemente sustituye ese valor en la expresión de la función. Por ejemplo, si tienes \(f(x) = 3x + 5\) y quieres encontrar \(f(2)\), sustituye "x" por 2: \(f(2) = 3 \times 2 + 5 = 11\).
+        </p>
+      
+        <h3>Ejemplo de evaluación de funciones</h3>
+        <p>
+          Supongamos que tenemos la función \(f(x) = 2x + 3\). Vamos a evaluar \(f\) en varios valores de \(x\) y representar el resultado como pares ordenados:
+          \[ f = \{(x, f(x)) \mid x \in \mathbb{R}\} \]
+          <ul>
+            <li>Para \(x = 1\): \(f(1) = 2 \times 1 + 3 = 5\), por lo tanto, \((1, 5)\) está en \(f\).</li>
+            <li>Para \(x = 0\): \(f(0) = 2 \times 0 + 3 = 3\), por lo tanto, \((0, 3)\) está en \(f\).</li>
+            <li>Para \(x = -1\): \(f(-1) = 2 \times (-1) + 3 = 1\), por lo tanto, \((-1, 1)\) está en \(f\).</li>
+          </ul>
+          Estos pares ordenados representan la relación entre \(x\) y \(f(x)\) para la función \(f(x) = 2x + 3\).
+        </p>
+
+        <h2>Tipos de funciones</h2>
+
+        <h3>Funciones constantes</h3>
+
+        <p>
+          Una <strong>función constante</strong> tiene la forma \(f(x) = c\), donde "c" es un número constante. El gráfico de una función constante es una línea horizontal, ya que el resultado es el mismo para cualquier valor de "x".
+        </p>
+
+        <h4>Ejemplo: Función constante</h4>
+        
+        <p>
+          Ahora consideremos la función \(g(x) = 4\). Para cualquier valor de "x", \(g(x)\) siempre será 4. Esto se muestra en un gráfico como una línea horizontal en \(y = 4\).
+        </p>
+
+        <div id="funcionConstante" class="grafico"></div>
+        <script>
+          // Definir los datos
+          const y2 = x.map(x => 4);  // Función lineal y = 4
+      
+          // Definir el trazo (en este caso, una línea)
+          const trace2 = {
+            x: x,
+            y: y2,
+            mode: 'markers+lines',
+            type: 'scatter',
+            marker: {
+              size: 5,  // Tamaño de los puntos
+              color: 'red'  // Color de los puntos
+            },
+            line : {
+              color: 'blue'
+            }
+          };
+      
+          // Definir el diseño del gráfico
+          const layout2 = {
+            title: 'Función Lineal y = f(x) = 4',
+            xaxis: {
+              title: 'x - DOMINIO',
+              dtick: 1,
+              scaleanchor: 'y'
+            },
+            yaxis: {
+              title: 'y - RANGO',
+              dtick: 1
+            }
+          };
+      
+          // Crear el gráfico
+          Plotly.newPlot('funcionConstante', [trace2], layout2);
+        </script>
+
+        <h3>Funciones lineales</h3>
+
+        <p>
+          Una <strong>función lineal</strong> tiene la forma \(f(x) = mx + b\), donde "m" es la pendiente y "b" es la intersección con el eje y (cuando \(x = 0\)). La pendiente representa la inclinación de la línea en el gráfico.
+        </p>
+
+        <h4>Ejemplo: Función lineal</h4>
+
+        <p>
+          Supongamos que tenemos la función \(f(x) = 2x + 3\). Podemos encontrar \(f(1)\) sustituyendo \(x = 1\): \(f(1) = 2 \times 1 + 3 = 5\). Este proceso se puede repetir para cualquier valor de \(x\).
+        </p>
+        
+        <div id="funcionLineal" class="grafico"></div>
+
+        <script>
+          // Definir los datos
+          const y3 = x.map(x => 2*x+3);  // Función lineal y = 4
+      
+          // Definir el trazo (en este caso, una línea)
+          const trace3 = {
+            x: x,
+            y: y3,
+            mode: 'markers+lines',
+            type: 'scatter',
+            marker: {
+              size: 5,  // Tamaño de los puntos
+              color: 'red'  // Color de los puntos
+            },
+            line : {
+              color: 'blue'
+            }
+          };
+      
+          // Definir el diseño del gráfico
+          const layout3 = {
+            title: 'Función Lineal y = f(x) = 2x + 3',
+            xaxis: {
+              title: 'x - DOMINIO',
+              dtick: 1,
+              scaleanchor: 'y'
+            },
+            yaxis: {
+              title: 'y - RANGO',
+              dtick: 1
+            }
+          };
+      
+          // Crear el gráfico
+          Plotly.newPlot('funcionLineal', [trace3], layout3);
+        </script>
+
+      
+    </main>
+
+    
+    
+
+    <!-- SCRIPTS -->
+
+        <!-- MATHJAX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <footer class="footer flexContainer">
+      <div class="contact-info">
+        <h3>Datos</h3>
+        <p>Docente: FranQC</p>
+        <p>Email: <a href="mailto:xolotl15@gmail.com">xolotl15@gmail.com</a></p>
+        <p>Teléfono: <a href="tel:+51971778418">971778418</a></p>
+      </div>
+    
+      <div class="useful-links">
+        <h3>Enlaces útiles</h3>
+        <ul>
+          <li><a href="https://www.feyalegria31nsg.com">Pagina Web de la institución</a></li>
+        </ul>
+      </div>
+    
+      <div class="social-media">
+        <h3>Redes sociales</h3>
+        <ul>
+          <li><a href="https://www.facebook.com/franklinquinchoconcha">Facebook FranQC</a></li>
+          <li><a href="https://www.facebook.com/feyalegria31">Facebook Fe y Alegría 31</a></li>
+          <!-- Agrega más enlaces a tus redes sociales si es necesario -->
+        </ul>
+      </div>
+    
+      <div class="additional-info">
+        <h3>Información adicional</h3>
+        <p>La innovacion es producto de la unión de distintas áreas del saber guiadas en la misma dirección</p>
+      </div>
+    </footer>
+    
+
+    
+</body>
+
+</html>
